@@ -1,0 +1,243 @@
+:root {
+  color: #1c2430;
+  background: #eef2f5;
+  font-family: "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0 16px;
+}
+
+button {
+  padding: 0 16px 4px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 16px 4px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #5c6775;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-link.active {
+  background: #1c2430;
+  border-color: #d5dee6;
+  color: #fff;
+  font-weight: bold;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 650;
+}
+
+.secondary {
+  height: 40px;
+  border: 1px solid #c5ced6;
+  border-radius: 8px;
+  background: #fff;
+  color: #1c2430;
+  font: inherit;
+  cursor: pointer;
+}
+
+.primary {
+  height: 32px;
+  border: 1px solid #1f6feb;
+  border-radius: 8px;
+  background: #1f6feb;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.danger {
+  height: 32px;
+  border: 1px solid #e7b1b1;
+  border-radius: 8px;
+  background: #dc3545;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.secondary:disabled,
+.primary:disabled,
+.danger:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.message {
+  margin: 0 0 16px;
+}
+
+.error {
+  color: #c62828;
+}
+
+.table-wrap {
+  overflow: auto;
+  border: 1px solid #d5dee6;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.table-wrap .secondary {
+  height: 32px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 16px;
+}
+
+.row-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.config-form {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 16px;
+  padding: 16px;
+  border: 1px solid #d5dee6;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.config-form label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.config-form input,
+.config-form textarea,
+.config-form select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #c5ced6;
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+}
+
+.config-form textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.form-actions .secondary,
+.form-actions .primary {
+  height: 36px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #e6edf2;
+}
+
+.col-no {
+  width: 56px;
+  text-align: center;
+}
+
+.col-action {
+  text-align: center;
+}
+
+.config-table {
+  table-layout: fixed;
+}
+
+.config-table .col-name {
+  width: 22%;
+}
+
+.config-table .col-action {
+  width: 168px;
+}
+
+.product-table .col-sku,
+.product-table .col-category {
+  width: 140px;
+}
+
+.product-table .col-price,
+.category-table .col-count {
+  width: 100px;
+  text-align: center;
+}
+
+.cell-ellipsis {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+th {
+  background: #f7fafc;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #5c6775;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+.empty {
+  color: #5c6775;
+  text-align: center;
+}

@@ -1,0 +1,5 @@
+# Local Wrangler only. Copy this file to .dev.vars and set the same secrets as production.
+# Production values live in Workers & Pages → product-manage-app → Settings → Variables and Secrets.
+# MONGODB_URI is encrypted there, so paste that value below.
+MONGODB_URI=mongodb+srv://USER:PASSWORD@CLUSTER.mongodb.net/?retryWrites=true&w=majority
+MONGODB_DB=productmanage

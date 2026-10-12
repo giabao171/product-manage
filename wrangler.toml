@@ -1,0 +1,47 @@
+name = "product-manage-app"
+main = "src/worker.js"
+compatibility_date = "2026-03-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Keep plain variables that were added under Runtime variables and secrets.
+# Without this, `wrangler deploy` deletes them because they are not listed below.
+keep_vars = true
+
+# Runs before `wrangler deploy` and `wrangler dev`.
+# Cloudflare Workers Builds calls `npx wrangler deploy` directly, and web/dist is not in git.
+[build]
+command = "node scripts/build-web.mjs"
+watch_dir = "web/src"
+
+# Non-secret settings. MONGODB_URI is not listed here.
+# Set it in the Cloudflare dashboard:
+# Workers & Pages → product-manage-app → Settings → Variables and Secrets
+# → Add → Type: Secret → Name: MONGODB_URI
+# Local Wrangler reads the same name from .dev.vars.
+[vars]
+MONGODB_DB = "productmanage"
+
+# `wrangler preview` does not inherit production variables.
+[previews.vars]
+MONGODB_DB = "productmanage"
+
+# Optional native addon used only for field-level encryption. Workers cannot load it.
+[alias]
+"mongodb-client-encryption" = "./src/empty-encryption.cjs"
+
+[assets]
+directory = "./web/dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+# The React pages are static files. API routes and the home redirect run in the Worker.
+run_worker_first = ["/", "/api", "/api/*"]
+
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true
+persist = true
